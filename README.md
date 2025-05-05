@@ -13,5 +13,13 @@ The rules of the game come in a complex format, which I will not be methodically
 - There is also `BABA IS YOU` which controls the character, but won't be super-relevant for this blogpost.
 - You can also use `OBJECT IS OBJECT`, which is used quite a lot during the game. For example, `FLAG IS KEY` turns all flag objects into keys.
 - There are conditional rules, like `BUG ON TREE IS FLAG` (turns the bug into a flag if placed on a tree) or `BUG FACING KEY IS WALL` (when the bug's orientation directly looks at at key, it turns into a wall).
+- There are `AND` and `NOT` clauses. For example, `NOT BUG IS YOU` means you control every type of object in the game except bugs, and `BUG IS NOT YOU` would prevent you from creating `BUG IS YOU`.
+- There are certain verbs that affect what the object does. For example, `KEY IS MOVE` makes keys move (according to their orientation).
 
-The game highly abuses those mechanics - for example, breaking a `WALL IS STOP` to move through walls or turning `WALL IS YOU` to move *as the wall*.
+The game highly abuses those mechanics - for example, breaking a `WALL IS STOP` to move through walls or turning `WALL IS YOU` to move *as the wall*.  
+As the game progresses, things become more "meta", but I do not want to spoil anything and it's not super relevant for this blogpost anyway.
+
+### Level editor
+I have used a [free level editor](https://hempuli.itch.io/baba-is-you-level-editor-beta) to play around with this experiment.  
+Sadly, levels have a size limit of 33x8, but it's good enough for the purpose of building the basic building-blocks of a CPU.
+
