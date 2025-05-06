@@ -89,5 +89,11 @@ Now we can design the gate in a way that the "pending gate state" bit will be on
 Those rules essentially implement the truth table, and I can design the `BELT` objects in the gate to make the `TURTLE` or `FISH` to get pushed by the left bit (the 2nd bit to arrive).  
 There is one problem left though - after the right bit is transformed, we are left with a "naked" `TREE` or `FOLIAGE` and we need to reset the gate and make them turn into `LOVE` again.  
 Since they are not on a `BELT` - that is pretty easy - we add `TREE NOT ON BELT IS LOVE` and `FOLIAGE NOT ON BELT IS LOVE`.  
-Here is an animation showing how that looks like for two `TREE` objects:
+Here are animations showing `NAND` gate for all 4 options:
+
+![False NAND False](baba_nand_ff.gif)
+![False NAND True](baba_nand_ft.gif)
+![True NAND False](baba_nand_tf.gif)
+![True NAND True](baba_nand_tt.gif)
+
 
