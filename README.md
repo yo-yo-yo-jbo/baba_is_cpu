@@ -49,8 +49,8 @@ Thus, wires are `BELT` objects with their orientation and *literally* carry bits
 However, splitting a signal \ bit in two means duplicating the bit. How could that be done? We need to duplicate objects out of thin air!  
 My first candidate was using an adjective called `MORE`, which duplicates objects, and using it with a condition, e.g. `TREE NEAR KEKE IS MORE`.  
 The problem is that `MORE` duplicates as much as possible in all 4 directions, and it was difficult to avoid creating *too many* objects.  
-I've decided to use something else: use a condition (with `KEKE`, but I could have used anything else) and say that if it's facing `TREE` it'd `MAKE` TREE (same for `FOLIAGE`).  
-The thing is that `MAKE` is created at the same position as `KEKE`, so I added `TREE AND FOLIAGE ON KEKE IS MOVE` which will move it away.  
+I've decided to use something else: use a condition (with `KEKE`, but I could have used anything else) and say that if it's facing `TREE` it'd `MAKE` a `TREE`, i.e. `KEKE FACING TREE MAKE TREE` (and a similar rule for the `FOLIAGE` object, of course).  
+The problem is that `MAKE` is created at the same position as `KEKE` ("underneath" it), so I added `TREE AND FOLIAGE ON KEKE IS MOVE` which will move it away.  
 Here is a nice example (I put a `TREE` in a `BOX` for the sake of demonstration):  
 ![Wire duplication](baba_wires.gif)
 
@@ -62,3 +62,26 @@ Lastly, we'd like to implement a `NAND` gate, which is a `NOT` being done on an 
 | False | True  | True   |
 | True  | False | True   |
 | True  | True  | False  |
+
+The logic itself might not be super complicated, but there is one more issue - synchronization.  
+We cannot rely on two bits arriving at the same time, nor can we rely on one arrivng early - they will arrive at an arbitrary order.  
+So, my initial thought was to put the bits (`TREE`, `FOLIAGE`) on an empty space, make them only pushable on `BELT`, and based on the Truth table for NAND do certain things.  
+However, I needed to make one of them disappear - normally I'd use a special object called `EMPTY` (which does exist in the game) - but alas, the editor does not have `EMPTY`!  
+So, instead of an empty space, I used a heart object (called `LOVE`). To synchronize, I added `LOVE IS WEAK` which means the first object that "steps" on it takes its place.  
+At that point, all I needed was to implement the truth table in rules - which I couldn't do.  
+I thought of adding something like `TREE FACING TREE IS FOLIAGE` (for `NAND(T, T) = F`) but it raises severe problems with wires - it means I must avoid having wires live side-by-side.  
+Therefore, I've decided to introduce "states" to bits that are "pending" gate operations, and to keep the same fashion of `TRUE = TREE` and `FALSE = FOLIAGE`, I introduced `TURTLE` and `FISH`:  
+| Bit   | Neutral state | Pending gate state |
+| :---: | :-----------: | :----------------: |
+| False | FOLIAGE       | FISH               |
+| True  | TREE          | TURTLE             |
+
+Basically, by adding `LOVE IS WEAK`, `TREE ON LOVE IS TURTLE` and `FOLIAGE ON LOVE IS FISH` I make the first bit that arrives the gate get into the pending gate state and replace `LOVE`.  
+Also, because I introduced `TREE AND FOLIAGE IS PUSH` - they cannot contain the same space, which means I do not have to worry about them arriving at the same time.  
+In addition, I introduced `TURTLE AND FISH IS PUSH` for similar reasons.  
+
+
+
+
+
+
