@@ -49,7 +49,8 @@ My first candidate was using an adjective called `MORE`, which duplicates object
 The problem is that `MORE` duplicates as much as possible in all 4 directions, and it was difficult to avoid creating *too many* objects.  
 I've decided to use something else: use a condition (with `KEKE`, but I could have used anything else) and say that if it's facing `TREE` it'd `MAKE` TREE (same for `FOLIAGE`).  
 The thing is that `MAKE` is created at the same position as `KEKE`, so I added `TREE AND FOLIAGE ON KEKE IS MOVE` which will move it away.  
-Here is a nice example:
+Here is a nice example (I put a `TREE` in a `BOX` for the sake of demonstration):  
+![Wire duplication](baba_wires.gif)
 
 
 
