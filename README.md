@@ -1,7 +1,7 @@
 # Baba Is CPU
 This is going to be an unusual blogpost for me.  
 Recently I got back into the game [Baba Is You](https://en.wikipedia.org/wiki/Baba_Is_You). If you don't know the game - I *highly* recommend it.  
-In this blogpost, I am going to show to Turing-completeness of the game.
+In this blogpost, I am going to show to one might use the game mechanics to build a CPU.
 
 ## What is Baba Is You?
 Baba Is You is a [Sokoban](https://en.wikipedia.org/wiki/Sokoban)-style puzzle game. It features 2 dimentional levels, in each of them you can manipulate various objects to eventually reach a goal.  
@@ -23,3 +23,11 @@ As the game progresses, things become more "meta", but I do not want to spoil an
 I have used a [free level editor](https://hempuli.itch.io/baba-is-you-level-editor-beta) to play around with this experiment.  
 Sadly, levels have a size limit of 33x8, but it's good enough for the purpose of building the basic building-blocks of a CPU.
 
+## Designing a CPU
+What do we need to "create" a CPU in software? Apparently not much! We only need the following receipe:
+- A way to represent bits (`0` and `1`).
+- A way to transmit bits (in `wires`). Note this includes splitting a wire into two, just like in electric circuits.
+- [Functionally complete](https://en.wikipedia.org/wiki/Functional_completeness) gates. For the same of simplicity - being able to implement a [NAND gate](https://en.wikipedia.org/wiki/NAND_gate).
+
+Everything else (ALU, registers, control units) could be implemented using those. I think that's pretty amazing!  
+In fact, I highly recommend the course [From NAND to Tetris](https://www.nand2tetris.org) that shows exactly how to get to a full CPU from those 3 concepts.
