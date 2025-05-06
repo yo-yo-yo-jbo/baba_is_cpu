@@ -67,6 +67,7 @@ The logic itself might not be super complicated, but there is one more issue - s
 We cannot rely on two bits arriving at the same time, nor can we rely on one arrivng early - they will arrive at an arbitrary order.  
 So, my initial thought was to put the bits (`TREE`, `FOLIAGE`) on an empty space, make them only pushable on `BELT`, and based on the Truth table for NAND do certain things.  
 However, I needed to make one of them disappear - normally I'd use a special object called `EMPTY` (which does exist in the game) - but alas, the editor does not have `EMPTY`!  
+*Remark*: only much after did I realize there is an "advanced objects" option in the editor which does allow `EMPTY`... Anyway - my solution was already solid.  
 So, instead of an empty space, I used a heart object (called `LOVE`). To synchronize, I added `LOVE IS WEAK` which means the first object that "steps" on it takes its place.  
 At that point, all I needed was to implement the truth table in rules - which I couldn't do.  
 I thought of adding something like `TREE FACING TREE IS FOLIAGE` (for `NAND(T, T) = F`) but it raises severe problems with wires - it means I must avoid having wires live side-by-side.  
@@ -103,4 +104,5 @@ Here are animations showing `NAND` gate for all 4 options:
 #### True NAND True
 ![True NAND True](baba_nand_tt.gif)
 
-
+### Complete level data
+Here is the complete level:
