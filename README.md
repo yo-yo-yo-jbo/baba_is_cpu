@@ -91,9 +91,16 @@ There is one problem left though - after the right bit is transformed, we are le
 Since they are not on a `BELT` - that is pretty easy - we add `TREE NOT ON BELT IS LOVE` and `FOLIAGE NOT ON BELT IS LOVE`.  
 Here are animations showing `NAND` gate for all 4 options:
 
+#### False NAND False
 ![False NAND False](baba_nand_ff.gif)
+
+#### False NAND True
 ![False NAND True](baba_nand_ft.gif)
+
+#### True NAND False
 ![True NAND False](baba_nand_tf.gif)
+
+#### True NAND True
 ![True NAND True](baba_nand_tt.gif)
 
 
