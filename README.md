@@ -44,7 +44,7 @@ Here is what I had in mind (with `BELT` items at the bottom, more on that in the
 ![Bits](baba_bits.gif)
 
 ### Wires in Baba Is You
-Baba Is You offers a mechanism called `SHIFT`, "naturally" used by `BELT` (i.e. `BELT IS SHIFT`).  
+The game offers a mechanism called `SHIFT`, "naturally" used by `BELT` (i.e. `BELT IS SHIFT`).  
 Thus, wires are `BELT` objects with their orientation and *literally* carry bits around!  
 However, splitting a signal \ bit in two means duplicating the bit. How could that be done? We need to duplicate objects out of thin air!  
 My first candidate was using an adjective called `MORE`, which duplicates objects, and using it with a condition, e.g. `TREE NEAR KEKE IS MORE`.  
@@ -54,6 +54,11 @@ The thing is that `MAKE` is created at the same position as `KEKE`, so I added `
 Here is a nice example (I put a `TREE` in a `BOX` for the sake of demonstration):  
 ![Wire duplication](baba_wires.gif)
 
-
-
-
+### Implementing a NAND Gate
+Lastly, we'd like to implement a `NAND` gate, which is a `NOT` being done on an `AND` gate. Here is the [Truth Table](https://en.wikipedia.org/wiki/Truth_table) for NAND:  
+| X     | Y     | Result |
+| :---: | :---: | :----: |
+| False | False | True   |
+| False | True  | True   |
+| True  | False | True   |
+| True  | True  | False  |
