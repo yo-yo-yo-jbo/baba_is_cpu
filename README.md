@@ -114,6 +114,7 @@ Here are animations showing `NAND` gate for all 4 options:
 Here is the complete level (I added labels on each of the components for clarity):  
 ![Full demo](baba_full.png)
 
+In its current form it demonstrates a `NOT` gate (`X NAND X = NOT X`).  
 I've also uploaded the level data (as [87level.l](87level.l) and [87level.ld](87level.ld)) to this repository.  
 Note the rules on the left side are the core mechanics - the rule on the right, as well as the `BUG` and `BOX` items were created for demonstration purposes only.
 
