@@ -31,3 +31,26 @@ What do we need to "create" a CPU in software? Apparently not much! We only need
 
 Everything else (ALU, registers, control units) could be implemented using those. I think that's pretty amazing!  
 In fact, I highly recommend the course [From NAND to Tetris](https://www.nand2tetris.org) that shows exactly how to get to a full CPU from those 3 concepts.
+
+### Previous work
+I note previous work has been done on Baba Is You and Turing completeness - specifically [this paper](https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume5-issue7/IJHSR_2023_57_140.pdf) illustates it well.  
+However, I wanted to present a different approach, mostly to show how to build logic gates rather than a Turing machine.  
+I also believe the thought process is more interesting than the result, and that's what I'd like to share here.
+
+### Bits in Baba Is You
+I've decided to use objects as bits - specifically `FOLIAGE` as `0` and `TREE` as `1`.  
+I think it's easy to remember since `TREE` sounds like `TRUE` and `FOLIAGE` sounds like `FALSE`.
+
+### Wires in Baba Is You
+Baba Is You offers a mechanism called `SHIFT`, "naturally" used by `BELT` (i.e. `BELT IS SHIFT`).  
+Thus, wires are `BELT` objects with their orientation and *literally* carry bits around!  
+However, splitting a signal \ bit in two means duplicating the bit. How could that be done? We need to duplicate objects out of thin air!  
+My first candidate was using an adjective called `MORE`, which duplicates objects, and using it with a condition, e.g. `TREE NEAR KEKE IS MORE`.  
+The problem is that `MORE` duplicates as much as possible in all 4 directions, and it was difficult to avoid creating *too many* objects.  
+I've decided to use something else: use a condition (with `KEKE`, but I could have used anything else) and say that if it's facing `TREE` it'd `MAKE` TREE (same for `FOLIAGE`).  
+The thing is that `MAKE` is created at the same position as `KEKE`, so I added `TREE AND FOLIAGE ON KEKE IS MOVE` which will move it away.  
+Here is a nice example:
+
+
+
+
