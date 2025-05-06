@@ -116,3 +116,15 @@ Here is the complete level (I added labels on each of the components for clarity
 
 I've also uploaded the level data (as [87level.l](87level.l) and [87level.ld](87level.ld)) to this repository.  
 Note the rules on the left side are the core mechanics - the rule on the right, as well as the `BUG` and `BOX` items were created for demonstration purposes only.
+
+## Future work
+As I mentioned, the editor (and the entire game) only allows 33x8 blocks per level, which is not nearly enough to do anything meaningful.  
+In the future I intend to take my rules, `NAND` gate implementation and building a complete [RISC CPU](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer).  
+It'd require hacking the editor and allowing an enormous level size in a performant way.  
+After that? [Maybe running DOOM](https://github.com/smunaut/doom_riscv)... But that'd have to wait for another day.
+
+Stay tuned!
+
+Jonathan Bar Or
+
+
