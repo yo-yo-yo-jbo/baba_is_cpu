@@ -39,7 +39,9 @@ I also believe the thought process is more interesting than the result, and that
 
 ### Bits in Baba Is You
 I've decided to use objects as bits - specifically `FOLIAGE` as `0` and `TREE` as `1`.  
-I think it's easy to remember since `TREE` sounds like `TRUE` and `FOLIAGE` sounds like `FALSE`.
+I think it's easy to remember since `TREE` sounds like `TRUE` and `FOLIAGE` sounds like `FALSE`.  
+Here is what I had in mind (with `BELT` items at the bottom, more on that in the following section):  
+![Bits](baba_bits.gif)
 
 ### Wires in Baba Is You
 Baba Is You offers a mechanism called `SHIFT`, "naturally" used by `BELT` (i.e. `BELT IS SHIFT`).  
