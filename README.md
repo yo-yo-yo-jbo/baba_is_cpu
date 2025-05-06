@@ -77,8 +77,7 @@ Therefore, I've decided to introduce "states" to bits that are "pending" gate op
 | True  | TREE          | TURTLE             |
 
 Basically, by adding `LOVE IS WEAK`, `TREE ON LOVE IS TURTLE` and `FOLIAGE ON LOVE IS FISH` I make the first bit that arrives the gate get into the pending gate state and replace `LOVE`.  
-Also, because I introduced `TREE AND FOLIAGE IS PUSH` - they cannot contain the same space, which means I do not have to worry about them arriving at the same time.  
-In addition, I introduced `TURTLE AND FISH IS PUSH` for similar reasons.  
+Also, to handle the case of bits arriving at the same time and ending up on top of each other - I introduced `FOLIAGE ON TREE IS MOVE` which will hasten `FOLIAGE` one step.
 Now we can design the gate in a way that the "pending gate state" bit will be on the right side of the gate - that means we could add rules to implement the truth table:  
 | Left bit | Right bit | Rule                        |
 | :------: | :-------: | :-------------------------: |
