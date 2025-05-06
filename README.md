@@ -105,4 +105,7 @@ Here are animations showing `NAND` gate for all 4 options:
 ![True NAND True](baba_nand_tt.gif)
 
 ### Complete level data
-Here is the complete level:
+Here is the complete level:  
+![Full demo](baba_full.png)
+
+I've also uploaded the level data (as [87level.l](87level.l) and [87level.ld](87level.ld)) to this repository.
