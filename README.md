@@ -19,6 +19,12 @@ The rules of the game come in a complex format, which I will not be methodically
 The game highly abuses those mechanics - for example, breaking a `WALL IS STOP` to move through walls or turning `WALL IS YOU` to move *as the wall*.  
 As the game progresses, things become more "meta", but I do not want to spoil anything and it's not super relevant for this blogpost anyway.
 
+#### Gameplay
+Here is an example of how the rules are used (and sometimes abused) - courtesy of [Wikipedia](https://en.wikipedia.org/wiki/Baba_Is_You):  
+![Gameplay](baba_gameplay.gif)
+
+Note how the player character breaked `WALL IS STOP` to make that rule not apply, to later escape.
+
 ### Level editor
 I have used a [free level editor](https://hempuli.itch.io/baba-is-you-level-editor-beta) to play around with this experiment.  
 Sadly, levels have a size limit of 33x8, but it's good enough for the purpose of building the basic building-blocks of a CPU.
