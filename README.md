@@ -79,9 +79,16 @@ Therefore, I've decided to introduce "states" to bits that are "pending" gate op
 Basically, by adding `LOVE IS WEAK`, `TREE ON LOVE IS TURTLE` and `FOLIAGE ON LOVE IS FISH` I make the first bit that arrives the gate get into the pending gate state and replace `LOVE`.  
 Also, because I introduced `TREE AND FOLIAGE IS PUSH` - they cannot contain the same space, which means I do not have to worry about them arriving at the same time.  
 In addition, I introduced `TURTLE AND FISH IS PUSH` for similar reasons.  
+Now we can design the gate in a way that the "pending gate state" bit will be on the right side of the gate - that means we could add rules to implement the truth table:  
+| Left bit | Right bit | Rule                        |
+| :------: | :-------: | :-------------------------: |
+| FOLIAGE  | FISH      | FISH NEAR FOLIAGE IS TREE   |
+| FOLIAGE  | TURTLE    | TURTLE NEAR FOLIAGE IS TREE |
+| TREE     | FISH      | FISH NEAR TREE IS TREE      |
+| TREE     | TURTLE    | TURTLE NEAR TREE IS FOLIAGE |
 
-
-
-
-
+Those rules essentially implement the truth table, and I can design the `BELT` objects in the gate to make the `TURTLE` or `FISH` to get pushed by the left bit (the 2nd bit to arrive).  
+There is one problem left though - after the right bit is transformed, we are left with a "naked" `TREE` or `FOLIAGE` and we need to reset the gate and make them turn into `LOVE` again.  
+Since they are not on a `BELT` - that is pretty easy - we add `TREE NOT ON BELT IS LOVE` and `FOLIAGE NOT ON BELT IS LOVE`.  
+Here is an animation showing how that looks like for two `TREE` objects:
 
