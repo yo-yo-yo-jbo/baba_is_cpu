@@ -153,7 +153,7 @@ In any case, here is a nice example of how that might look like (this is a run f
 Note I made minor modifications - I moved the rules to the bottom part (saving vertical space), as well as adding a `MIRROR` object and an `ICE` object that use a mechanism called `TELE` (teleportation).  
 These were only done for convenience and do not have meaningful implications on the core logic.  
 Lastly, here is a picture of my half-adder:  
-![Half adder picture](baba_half_adder.png)
+![Half adder level](baba_half_adder.png)
 
 ## Future work
 As I mentioned, the editor (and the entire game) only allows 33x8 blocks per level, which is not nearly enough to do anything meaningful.  
