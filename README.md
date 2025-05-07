@@ -118,6 +118,43 @@ In its current form it demonstrates a `NOT` gate (`X NAND X = NOT X`).
 I've also uploaded the level data (as [87level.l](87level.l) and [87level.ld](87level.ld)) to this repository.  
 Note the rules on the left side are the core mechanics - the rule on the right, as well as the `BUG` and `BOX` items were created for demonstration purposes only.
 
+### Building a half-adder
+After publishing this blogpost, a friend reached out and challenged me to build a [half-adder](https://en.wikipedia.org/wiki/Adder_(electronics)).  
+It took less than an hour to complete, and I am pretty happy with the results. I've uploaded the level data (as [88level.l](88level.l) and [88level.ld](88level.ld)) to this repository.  
+For the uninitiated, a `half-adder` adds two bits and outputs their sum and their carry (I will be using `0` instead of `FALSE` and `1` instead of `TRUE` for now):  
+| Bit A | Bit B | Sum   | Carry |
+| :---: | :---: | :---: | :---: |
+| 0     | 0     | 0     | 0     |
+| 0     | 1     | 1     | 0     |
+| 1     | 0     | 1     | 0     |
+| 1     | 1     | 0     | 1     |
+
+The way I built it is from my original `NAND` gates and the wire splitting technique. Here it is, schematically:
+```
+              +---------> NAND ------> NAND ---> Sum
+              |            |            |
+      A --+---+---> NAND --+--> NAND ---+
+          |          |           |
+          |   B --+--+-----------+
+          |       |
+          |       +---> NAND --------+--> NAND --> Carry
+          |              |           |     |
+          +--------------+           +-----+
+```
+
+The `Carry` operation is quite simple - it is simply an `AND` gate! We implemented `Carry = NAND(NAND(A, B), NAND(A, B))`.  
+Since self-`NAND` operation is a `NOT` gate (think why!), we get `Carry = NOT(NAND(A, B)) = AND(A, B)`.  
+The `Sum` operation is a `XOR` gate (eXclusive-OR) and is slightly more difficult to prove (since I didn't name the `NAND` gates in the schema), but it could be done.  
+Note I was not "efficient" in a sense I calculated `NAND(A, B)` twice, while I could've used a single `NAND` gate for it and split its output wire.  
+The reason I did that is to avoid wire intersections, which becomes quite complicated to deal with on a 33x18 board (which rules taking a lot of space anyway).  
+In any case, here is a nice example of how that might look like (this is a run for `0` and `1`, producing `Sum = 1` and `Carry = 0`):  
+![Half adder](baba_half_adder.gif)
+
+Note I made minor modifications - I moved the rules to the bottom part (saving vertical space), as well as adding a `MIRROR` object and an `ICE` object that use a mechanism called `TELE` (teleportation).  
+These were only done for convenience and do not have meaningful implications on the core logic.  
+Lastly, here is a picture of my half-adder:  
+![Half adder picture](baba_half_adder.png)
+
 ## Future work
 As I mentioned, the editor (and the entire game) only allows 33x8 blocks per level, which is not nearly enough to do anything meaningful.  
 In the future I intend to take my rules, `NAND` gate implementation and building a complete [RISC CPU](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer).  
