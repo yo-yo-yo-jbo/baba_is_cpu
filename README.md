@@ -23,7 +23,7 @@ As the game progresses, things become more "meta", but I do not want to spoil an
 Here is an example of how the rules are used (and sometimes abused) - courtesy of [Wikipedia](https://en.wikipedia.org/wiki/Baba_Is_You):  
 ![Gameplay](baba_gameplay.gif)
 
-Note how the player character breaked `WALL IS STOP` to make that rule not apply, to later escape.
+Note how the player character broke `WALL IS STOP` to make that rule not apply, to later escape.
 
 ### Level editor
 I have used a [free level editor](https://hempuli.itch.io/baba-is-you-level-editor-beta) to play around with this experiment.  
